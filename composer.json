@@ -2,7 +2,7 @@
     "name": "fishpig/magento2-remove-multishipping",
     "description": "Remove Magento_Multishipping.",
     "type": "project",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "autoload": {
         "psr-4": {
             "Magento\\Multishipping\\": "Mock/Magento/Multishipping"

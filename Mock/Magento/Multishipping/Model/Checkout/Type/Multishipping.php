@@ -6,6 +6,16 @@
 
 namespace Magento\Multishipping\Model\Checkout\Type;
 
+use Magento\Customer\Api\AddressRepositoryInterface;
+use Magento\Framework\Exception\NotFoundException;
+use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Model\Order\Email\Sender\OrderSender;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\App\ObjectManager;
+use Magento\Directory\Model\AllowedCountries;
+use Psr\Log\LoggerInterface;
+
 /**
  * Multishipping checkout model
  *
@@ -18,6 +28,37 @@ namespace Magento\Multishipping\Model\Checkout\Type;
  */
 class Multishipping extends \Magento\Framework\DataObject
 {
+    public function __construct(
+        \Magento\Checkout\Model\Session $checkoutSession,
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Sales\Model\OrderFactory $orderFactory,
+        AddressRepositoryInterface $addressRepository,
+        \Magento\Framework\Event\ManagerInterface $eventManager,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Framework\Session\Generic $session,
+        \Magento\Quote\Model\Quote\AddressFactory $addressFactory,
+        \Magento\Quote\Model\Quote\Address\ToOrder $quoteAddressToOrder,
+        \Magento\Quote\Model\Quote\Address\ToOrderAddress $quoteAddressToOrderAddress,
+        \Magento\Quote\Model\Quote\Payment\ToOrderPayment $quotePaymentToOrderPayment,
+        \Magento\Quote\Model\Quote\Item\ToOrderItem $quoteItemToOrderItem,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Payment\Model\Method\SpecificationInterface $paymentSpecification,
+        \Magento\Multishipping\Helper\Data $helper,
+        OrderSender $orderSender,
+        PriceCurrencyInterface $priceCurrency,
+        \Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
+        \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
+        \Magento\Framework\Api\FilterBuilder $filterBuilder,
+        \Magento\Quote\Model\Quote\TotalsCollector $totalsCollector,
+        array $data = [],
+        \Magento\Quote\Api\Data\CartExtensionFactory $cartExtensionFactory = null,
+        AllowedCountries $allowedCountryReader = null,
+        Multishipping\PlaceOrderFactory $placeOrderFactory = null,
+        LoggerInterface $logger = null,
+        \Magento\Framework\Api\DataObjectHelper $dataObjectHelper = null
+    ) {
+    }
+    
     /**
      * Remove item from address
      *
