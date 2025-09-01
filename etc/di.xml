@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <type name="Sapient\Worldpay\Block\Checkout\Multishipping\Billing">
+        <arguments>
+            <argument name="paymentSpecification" xsi:type="object">Magento\Multishipping\Model\Payment\Method\Specification\Enabled</argument>
+        </arguments>
+    </type>
+</config>
